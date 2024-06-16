@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/prodiff_web
+    username: root
+    password: 123456
+  data:
+    redis:
+      database: 1
+      host: localhost
+      port: 6379
+      password: 123456
+  rabbitmq:
+    addresses: localhost
+    username: admin
+    password: admin
+    virtual-host: prodiff_web
+  mail:
+    host: smtp.qq.com
+    username: atiutiu@qq.com
+    password: qkspjwftbdocdehh
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: "default"
+      paths-to-match: "/api/**"
+      packages-to-scan: "com.tiutiu.prodiff"
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.tiutiu.prodiff.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+tiutiu:
+  jwt:
+    token-name: token
+    secret-key: T1uTiu
+    ttl: 3600000

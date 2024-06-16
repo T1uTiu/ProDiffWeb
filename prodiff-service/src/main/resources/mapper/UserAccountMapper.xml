@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tiutiu.prodiff.mapper.UserAccountMapper">
+    <select id="getUserAccountByEmail" resultType="com.tiutiu.prodiff.entity.UserAccount">
+        SELECT * FROM user_account WHERE email = #{email}
+    </select>
+    <insert id="insertUserAccount" parameterType="com.tiutiu.prodiff.entity.UserAccount">
+        INSERT INTO user_account (email, password, username)
+        VALUES (#{email}, #{password}, #{username})
+    </insert>
+</mapper>
